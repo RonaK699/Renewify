@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Renewify</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-text">Renewify</span>
+        </a>
+      </div>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="browse.html" class="nav-link">Browse</a></li>
+          <li class="nav-item"><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="user-menu">
+        <div class="notifications">
+          <button class="notification-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </button>
+        </div>
+        <div class="user-avatar">
+          <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+          <span class="user-name">Jane Smith</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="user-dropdown">
+          <a href="#profile"><i class="fas fa-user"></i> My Profile</a>
+          <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+          <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-user">
+        <div class="user-avatar">
+          <img src="/placeholder.svg?height=80&width=80" alt="User Avatar">
+        </div>
+        <div class="user-info">
+          <h3>Jane Smith</h3>
+          <p>Creator since 2022</p>
+        </div>
+      </div>
+      <div class="sidebar-toggle">
+        <button id="sidebar-collapse-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="active" data-section="overview"><a href="#overview"><i class="fas fa-home"></i> <span>Overview</span></a></li>
+          <li data-section="products"><a href="#products"><i class="fas fa-box"></i> <span>My Products</span></a></li>
+          <li data-section="orders"><a href="#orders"><i class="fas fa-shopping-cart"></i> <span>Orders</span></a></li>
+          <li data-section="analytics"><a href="#analytics"><i class="fas fa-chart-line"></i> <span>Analytics</span></a></li>
+          <li data-section="messages"><a href="#messages"><i class="fas fa-envelope"></i> <span>Messages</span> <span class="badge">3</span></a></li>
+          <li data-section="community"><a href="#community"><i class="fas fa-users"></i> <span>Community</span></a></li>
+          <li data-section="settings"><a href="#settings"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="eco-impact">
+          <h4>Your Eco Impact</h4>
+          <div class="impact-meter">
+            <div class="meter-fill" style="width: 75%;"></div>
+          </div>
+          <p>75% to next level</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Dashboard Content -->
+    <main class="dashboard-content">
+      <!-- Overview Section -->
+      <section id="overview-section" class="dashboard-section active">
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+          <div class="welcome-content">
+            <h1>Welcome back, Jane!</h1>
+            <p>Here's what's happening with your Renewify account today.</p>
+          </div>
+          <div class="quick-actions">
+            <button class="action-btn" id="add-product-btn"><i class="fas fa-plus"></i> Add Product</button>
+            <button class="action-btn" id="notifications-btn"><i class="fas fa-bell"></i> Notifications</button>
+          </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-cards">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-box"></i>
+            </div>
+            <div class="stat-info">
+              <h3>12</h3>
+              <p>Active Products</p>
+            </div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i> 2
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="stat-info">
+              <h3>28</h3>
+              <p>Total Sales</p>
+            </div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i> 5
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="stat-info">
+              <h3>$1,240</h3>
+              <p>Revenue</p>
+            </div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i> $320
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-recycle"></i>
+            </div>
+            <div class="stat-info">
+              <h3>45 kg</h3>
+              <p>Waste Saved</p>
+            </div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i> 8 kg
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="dashboard-charts">
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3>Sales Overview</h3>
+              <div class="chart-period">
+                <button class="period-btn active" data-period="week">Week</button>
+                <button class="period-btn" data-period="month">Month</button>
+                <button class="period-btn" data-period="year">Year</button>
+              </div>
+            </div>
+            <div class="chart-body">
+              <canvas id="salesChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3>Product Performance</h3>
+              <div class="chart-actions">
+                <button class="chart-action-btn" id="download-chart"><i class="fas fa-download"></i></button>
+                <button class="chart-action-btn" id="chart-options"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+            <div class="chart-body">
+              <canvas id="productChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Orders -->
+        <div class="recent-orders">
+          <div class="section-header">
+            <h3>Recent Orders</h3>
+            <a href="#orders" class="view-all" id="view-all-orders">View All</a>
+          </div>
+          <div class="orders-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Product</th>
+                  <th>Customer</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#ORD-2305</td>
+                  <td>
+                    <div class="product-cell">
+                      <img src="/placeholder.svg?height=40&width=40" alt="Recycled Glass Vase">
+                      <span>Recycled Glass Vase</span>
+                    </div>
+                  </td>
+                  <td>Michael Brown</td>
+                  <td>Apr 15, 2023</td>
+                  <td>$45.00</td>
+                  <td><span class="status-badge completed">Completed</span></td>
+                  <td><button class="action-btn small view-order-btn" data-order="2305"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td>#ORD-2304</td>
+                  <td>
+                    <div class="product-cell">
+                      <img src="/placeholder.svg?height=40&width=40" alt="Upcycled Denim Bag">
+                      <span>Upcycled Denim Bag</span>
+                    </div>
+                  </td>
+                  <td>Sarah Johnson</td>
+                  <td>Apr 12, 2023</td>
+                  <td>$35.00</td>
+                  <td><span class="status-badge shipped">Shipped</span></td>
+                  <td><button class="action-btn small view-order-btn" data-order="2304"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td>#ORD-2303</td>
+                  <td>
+                    <div class="product-cell">
+                      <img src="/placeholder.svg?height=40&width=40" alt="Tin Can Lanterns">
+                      <span>Tin Can Lanterns</span>
+                    </div>
+                  </td>
+                  <td>David Wilson</td>
+                  <td>Apr 10, 2023</td>
+                  <td>$25.00</td>
+                  <td><span class="status-badge processing">Processing</span></td>
+                  <td><button class="action-btn small view-order-btn" data-order="2303"><i class="fas fa-eye"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Community Feed -->
+        <div class="community-feed">
+          <div class="section-header">
+            <h3>Community Feed</h3>
+            <a href="#community" class="view-all" id="view-all-community">View All</a>
+          </div>
+          <div class="feed-container">
+            <div class="feed-item">
+              <div class="feed-user">
+                <img src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+                <div class="feed-user-info">
+                  <h4>EcoArtist</h4>
+                  <span>2 hours ago</span>
+                </div>
+              </div>
+              <div class="feed-content">
+                <p>Just finished a new collection of recycled glass vases! Check them out in my store.</p>
+                <div class="feed-image">
+                  <img src="/placeholder.svg?height=200&width=400" alt="New Glass Vases">
+                </div>
+              </div>
+              <div class="feed-actions">
+                <button class="feed-action-btn like-btn" data-post="1"><i class="fas fa-heart"></i> <span>24</span></button>
+                <button class="feed-action-btn comment-btn" data-post="1"><i class="fas fa-comment"></i> <span>8</span></button>
+                <button class="feed-action-btn share-btn" data-post="1"><i class="fas fa-share"></i> Share</button>
+              </div>
+            </div>
+            <div class="feed-item">
+              <div class="feed-user">
+                <img src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+                <div class="feed-user-info">
+                  <h4>WoodWorks</h4>
+                  <span>5 hours ago</span>
+                </div>
+              </div>
+              <div class="feed-content">
+                <p>Looking for ideas on what to create with these reclaimed wooden pallets. Any suggestions?</p>
+                <div class="feed-image">
+                  <img src="/placeholder.svg?height=200&width=400" alt="Wooden Pallets">
+                </div>
+              </div>
+              <div class="feed-actions">
+                <button class="feed-action-btn like-btn" data-post="2"><i class="fas fa-heart"></i> <span>18</span></button>
+                <button class="feed-action-btn comment-btn" data-post="2"><i class="fas fa-comment"></i> <span>12</span></button>
+                <button class="feed-action-btn share-btn" data-post="2"><i class="fas fa-share"></i> Share</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section id="products-section" class="dashboard-section">
+        <div class="section-header">
+          <h2>My Products</h2>
+          <button class="add-product-btn" id="add-new-product"><i class="fas fa-plus"></i> Add New Product</button>
+        </div>
+
+        <div class="product-filters">
+          <div class="filter-group">
+            <label for="product-status">Status:</label>
+            <select id="product-status" class="filter-select">
+              <option value="all">All</option>
+              <option value="active">Active</option>
+              <option value="draft">Draft</option>
+              <option value="sold-out">Sold Out</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="product-category">Category:</label>
+            <select id="product-category" class="filter-select">
+              <option value="all">All Categories</option>
+              <option value="home-decor">Home Decor</option>
+              <option value="fashion">Fashion</option>
+              <option value="furniture">Furniture</option>
+              <option value="art">Art</option>
+              <option value="jewelry">Jewelry</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="product-sort">Sort By:</label>
+            <select id="product-sort" class="filter-select">
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="popular">Most Popular</option>
+            </select>
+          </div>
+          <div class="search-filter">
+            <input type="text" placeholder="Search products..." id="product-search">
+            <button type="button" id="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+
+        <div class="product-grid dashboard-products">
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/placeholder.svg?height=200&width=200" alt="Recycled Glass Vase">
+              <div class="product-actions">
+                <button class="product-action-btn edit-product" data-product="1"><i class="fas fa-edit"></i></button>
+                <button class="product-action-btn delete-product" data-product="1"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Recycled Glass Vase</h3>
+              <div class="product-meta">
+                <div class="product-price">$45.00</div>
+                <div class="product-status active">Active</div>
+              </div>
+              <div class="product-stats">
+                <span><i class="fas fa-eye"></i> 245</span>
+                <span><i class="fas fa-shopping-cart"></i> 18</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/placeholder.svg?height=200&width=200" alt="Upcycled Denim Bag">
+              <div class="product-actions">
+                <button class="product-action-btn edit-product" data-product="2"><i class="fas fa-edit"></i></button>
+                <button class="product-action-btn delete-product" data-product="2"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Upcycled Denim Bag</h3>
+              <div class="product-meta">
+                <div class="product-price">$35.00</div>
+                <div class="product-status active">Active</div>
+              </div>
+              <div class="product-stats">
+                <span><i class="fas fa-eye"></i> 187</span>
+                <span><i class="fas fa-shopping-cart"></i> 10</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/placeholder.svg?height=200&width=200" alt="Tin Can Lanterns">
+              <div class="product-actions">
+                <button class="product-action-btn edit-product" data-product="3"><i class="fas fa-edit"></i></button>
+                <button class="product-action-btn delete-product" data-product="3"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Tin Can Lanterns</h3>
+              <div class="product-meta">
+                <div class="product-price">$25.00</div>
+                <div class="product-status active">Active</div>
+              </div>
+              <div class="product-stats">
+                <span><i class="fas fa-eye"></i> 132</span>
+                <span><i class="fas fa-shopping-cart"></i> 8</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/placeholder.svg?height=200&width=200" alt="Bottle Lamp">
+              <div class="product-actions">
+                <button class="product-action-btn edit-product" data-product="4"><i class="fas fa-edit"></i></button>
+                <button class="product-action-btn delete-product" data-product="4"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Bottle Lamp</h3>
+              <div class="product-meta">
+                <div class="product-price">$65.00</div>
+                <div class="product-status draft">Draft</div>
+              </div>
+              <div class="product-stats">
+                <span><i class="fas fa-eye"></i> 0</span>
+                <span><i class="fas fa-shopping-cart"></i> 0</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/placeholder.svg?height=200&width=200" alt="Pallet Coffee Table">
+              <div class="product-actions">
+                <button class="product-action-btn edit-product" data-product="5"><i class="fas fa-edit"></i></button>
+                <button class="product-action-btn delete-product" data-product="5"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Pallet Coffee Table</h3>
+              <div class="product-meta">
+                <div class="product-price">$120.00</div>
+                <div class="product-status sold-out">Sold Out</div>
+              </div>
+              <div class="product-stats">
+                <span><i class="fas fa-eye"></i> 310</span>
+                <span><i class="fas fa-shopping-cart"></i> 5</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="/placeholder.svg?height=200&width=200" alt="Plastic Bottle Jewelry">
+              <div class="product-actions">
+                <button class="product-action-btn edit-product" data-product="6"><i class="fas fa-edit"></i></button>
+                <button class="product-action-btn delete-product" data-product="6"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Plastic Bottle Jewelry</h3>
+              <div class="product-meta">
+                <div class="product-price">$22.00</div>
+                <div class="product-status active">Active</div>
+              </div>
+              <div class="product-stats">
+                <span><i class="fas fa-eye"></i> 156</span>
+                <span><i class="fas fa-shopping-cart"></i> 12</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pagination">
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <span>...</span>
+          <a href="#">10</a>
+          <a href="#" class="next">Next <i class="fas fa-chevron-right"></i></a>
+        </div>
+      </section>
+
+      <!-- Orders Section -->
+      <section id="orders-section" class="dashboard-section">
+        <div class="section-header">
+          <h2>Orders</h2>
+          <div class="order-actions">
+            <button class="action-btn" id="export-orders"><i class="fas fa-file-export"></i> Export</button>
+            <button class="action-btn" id="print-orders"><i class="fas fa-print"></i> Print</button>
+          </div>
+        </div>
+
+        <div class="order-filters">
+          <div class="filter-group">
+            <label for="order-status">Status:</label>
+            <select id="order-status" class="filter-select">
+              <option value="all">All</option>
+              <option value="completed">Completed</option>
+              <option value="processing">Processing</option>
+              <option value="shipped">Shipped</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="order-date">Date Range:</label>
+            <select id="order-date" class="filter-select">
+              <option value="all">All Time</option>
+              <option value="today">Today</option>
+              <option value="week">This Week</option>
+              <option value="month">This Month</option>
+              <option value="year">This Year</option>
+            </select>
+          </div>
+          <div class="search-filter">
+            <input type="text" placeholder="Search orders..." id="order-search">
+            <button type="button" id="order-search-btn"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+
+        <div class="orders-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Product</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#ORD-2305</td>
+                <td>
+                  <div class="product-cell">
+                    <img src="/placeholder.svg?height=40&width=40" alt="Recycled Glass Vase">
+                    <span>Recycled Glass Vase</span>
+                  </div>
+                </td>
+                <td>Michael Brown</td>
+                <td>Apr 15, 2023</td>
+                <td>$45.00</td>
+                <td><span class="status-badge completed">Completed</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="action-btn small view-order-btn" data-order="2305"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn small invoice-btn" data-order="2305"><i class="fas fa-file-invoice"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>#ORD-2304</td>
+                <td>
+                  <div class="product-cell">
+                    <img src="/placeholder.svg?height=40&width=40" alt="Upcycled Denim Bag">
+                    <span>Upcycled Denim Bag</span>
+                  </div>
+                </td>
+                <td>Sarah Johnson</td>
+                <td>Apr 12, 2023</td>
+                <td>$35.00</td>
+                <td><span class="status-badge shipped">Shipped</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="action-btn small view-order-btn" data-order="2304"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn small invoice-btn" data-order="2304"><i class="fas fa-file-invoice"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>#ORD-2303</td>
+                <td>
+                  <div class="product-cell">
+                    <img src="/placeholder.svg?height=40&width=40" alt="Tin Can Lanterns">
+                    <span>Tin Can Lanterns</span>
+                  </div>
+                </td>
+                <td>David Wilson</td>
+                <td>Apr 10, 2023</td>
+                <td>$25.00</td>
+                <td><span class="status-badge processing">Processing</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="action-btn small view-order-btn" data-order="2303"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn small invoice-btn" data-order="2303"><i class="fas fa-file-invoice"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>#ORD-2302</td>
+                <td>
+                  <div class="product-cell">
+                    <img src="/placeholder.svg?height=40&width=40" alt="Bottle Lamp">
+                    <span>Bottle Lamp</span>
+                  </div>
+                </td>
+                <td>Emily Parker</td>
+                <td>Apr 8, 2023</td>
+                <td>$65.00</td>
+                <td><span class="status-badge shipped">Shipped</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="action-btn small view-order-btn" data-order="2302"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn small invoice-btn" data-order="2302"><i class="fas fa-file-invoice"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>#ORD-2301</td>
+                <td>
+                  <div class="product-cell">
+                    <img src="/placeholder.svg?height=40&width=40" alt="Plastic Bottle Jewelry">
+                    <span>Plastic Bottle Jewelry</span>
+                  </div>
+                </td>
+                <td>Jessica Lee</td>
+                <td>Apr 5, 2023</td>
+                <td>$22.00</td>
+                <td><span class="status-badge completed">Completed</span></td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="action-btn small view-order-btn" data-order="2301"><i class="fas fa-eye"></i></button>
+                    <button class="action-btn small invoice-btn" data-order="2301"><i class="fas fa-file-invoice"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <span>...</span>
+          <a href="#">8</a>
+          <a href="#" class="next">Next <i class="fas fa-chevron-right"></i></a>
+        </div>
+      </section>
+
+      <!-- Analytics Section -->
+      <section id="analytics-section" class="dashboard-section">
+        <div class="section-header">
+          <h2>Analytics</h2>
+          <div class="date-range-picker">
+            <button class="date-range-btn active" data-range="week">Week</button>
+            <button class="date-range-btn" data-range="month">Month</button>
+            <button class="date-range-btn" data-range="year">Year</button>
+            <button class="date-range-btn" data-range="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="analytics-overview">
+          <div class="analytics-card">
+            <div class="analytics-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <div class="analytics-info">
+              <h3>1,245</h3>
+              <p>Total Views</p>
+              <div class="analytics-change positive">
+                <i class="fas fa-arrow-up"></i> 12% from last period
+              </div>
+            </div>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="analytics-info">
+              <h3>28</h3>
+              <p>Total Orders</p>
+              <div class="analytics-change positive">
+                <i class="fas fa-arrow-up"></i> 8% from last period
+              </div>
+            </div>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="analytics-info">
+              <h3>$1,240</h3>
+              <p>Total Revenue</p>
+              <div class="analytics-change positive">
+                <i class="fas fa-arrow-up"></i> 15% from last period
+              </div>
+            </div>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="analytics-info">
+              <h3>156</h3>
+              <p>New Customers</p>
+              <div class="analytics-change negative">
+                <i class="fas fa-arrow-down"></i> 3% from last period
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="analytics-charts">
+          <div class="chart-container large">
+            <div class="chart-header">
+              <h3>Sales Trends</h3>
+              <div class="chart-actions">
+                <button class="chart-action-btn" id="download-sales-chart"><i class="fas fa-download"></i></button>
+                <button class="chart-action-btn" id="sales-chart-options"><i class="fas fa-ellipsis-v"></i></button>
+              </div>
+            </div>
+            <div class="chart-body">
+              <canvas id="salesTrendChart"></canvas>
+            </div>
+          </div>
+          
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3>Top Products</h3>
+              <div class="chart-actions">
+                <button class="chart-action-btn" id="download-products-chart"><i class="fas fa-download"></i></button>
+              </div>
+            </div>
+            <div class="chart-body">
+              <canvas id="topProductsChart"></canvas>
+            </div>
+          </div>
+          
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3>Customer Demographics</h3>
+              <div class="chart-actions">
+                <button class="chart-action-btn" id="download-demographics-chart"><i class="fas fa-download"></i></button>
+              </div>
+            </div>
+            <div class="chart-body">
+              <canvas id="demographicsChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="analytics-insights">
+          <h3>Insights & Recommendations</h3>
+          <div class="insights-container">
+            <div class="insight-card">
+              <div class="insight-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <div class="insight-content">
+                <h4>Sales Opportunity</h4>
+                <p>Your Recycled Glass Vase is trending. Consider creating similar products or running a promotion.</p>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div class="insight-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="insight-content">
+                <h4>Growth Trend</h4>
+                <p>Your sales have increased by 15% this month. Keep up the good work!</p>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div class="insight-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <div class="insight-content">
+                <h4>Inventory Alert</h4>
+                <p>Your Pallet Coffee Table is out of stock. Consider restocking soon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Messages Section -->
+      <section id="messages-section" class="dashboard-section">
+        <div class="section-header">
+          <h2>Messages</h2>
+          <button class="action-btn" id="compose-message"><i class="fas fa-pen"></i> Compose</button>
+        </div>
+
+        <div class="messages-container">
+          <div class="messages-sidebar">
+            <div class="messages-search">
+              <input type="text" placeholder="Search messages..." id="message-search">
+              <button type="button" id="message-search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="message-tabs">
+              <button class="message-tab active" data-tab="inbox">Inbox <span class="badge">3</span></button>
+              <button class="message-tab" data-tab="sent">Sent</button>
+              <button class="message-tab" data-tab="archived">Archived</button>
+            </div>
+            <div class="message-list">
+              <div class="message-item unread active" data-message="1">
+                <div class="message-avatar">
+                  <img src="/placeholder.svg?height=40&width=40" alt="Sarah Johnson">
+                </div>
+                <div class="message-preview">
+                  <div class="message-header">
+                    <h4>Sarah Johnson</h4>
+                    <span class="message-time">10:30 AM</span>
+                  </div>
+                  <p class="message-subject">Question about Upcycled Denim Bag</p>
+                  <p class="message-excerpt">Hi, I was wondering if the bag comes in different colors...</p>
+                </div>
+              </div>
+              <div class="message-item unread" data-message="2">
+                <div class="message-avatar">
+                  <img src="/placeholder.svg?height=40&width=40" alt="Michael Brown">
+                </div>
+                <div class="message-preview">
+                  <div class="message-header">
+                    <h4>Michael Brown</h4>
+                    <span class="message-time">Yesterday</span>
+                  </div>
+                  <p class="message-subject">Recycled Glass Vase Order</p>
+                  <p class="message-excerpt">Thank you for the quick delivery! The vase is beautiful...</p>
+                </div>
+              </div>
+              <div class="message-item unread" data-message="3">
+                <div class="message-avatar">
+                  <img src="/placeholder.svg?height=40&width=40" alt="Renewify Support">
+                </div>
+                <div class="message-preview">
+                  <div class="message-header">
+                    <h4>Renewify Support</h4>
+                    <span class="message-time">Apr 15</span>
+                  </div>
+                  <p class="message-subject">Your April Sales Report</p>
+                  <p class="message-excerpt">Your monthly sales report is now available. Click to view...</p>
+                </div>
+              </div>
+              <div class="message-item" data-message="4">
+                <div class="message-avatar">
+                  <img src="/placeholder.svg?height=40&width=40" alt="David Wilson">
+                </div>
+                <div class="message-preview">
+                  <div class="message-header">
+                    <h4>David Wilson</h4>
+                    <span class="message-time">Apr 12</span>
+                  </div>
+                  <p class="message-subject">Tin Can Lanterns Inquiry</p>
+                  <p class="message-excerpt">Do you ship internationally? I'm interested in ordering...</p>
+                </div>
+              </div>
+              <div class="message-item" data-message="5">
+                <div class="message-avatar">
+                  <img src="/placeholder.svg?height=40&width=40" alt="Emily Parker">
+                </div>
+                <div class="message-preview">
+                  <div class="message-header">
+                    <h4>Emily Parker</h4>
+                    <span class="message-time">Apr 10</span>
+                  </div>
+                  <p class="message-subject">Custom Order Request</p>
+                  <p class="message-excerpt">I love your work! Would you be able to create a custom...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="message-content">
+            <div class="message-view">
+              <div class="message-header-details">
+                <div class="message-subject-line">
+                  <h3>Question about Upcycled Denim Bag</h3>
+                  <div class="message-actions">
+                    <button class="message-action-btn" id="reply-btn"><i class="fas fa-reply"></i></button>
+                    <button class="message-action-btn" id="forward-btn"><i class="fas fa-share"></i></button>
+                    <button class="message-action-btn" id="archive-btn"><i class="fas fa-archive"></i></button>
+                    <button class="message-action-btn" id="delete-btn"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+                <div class="message-info">
+                  <div class="sender-info">
+                    <img src="/placeholder.svg?height=40&width=40" alt="Sarah Johnson">
+                    <div>
+                      <span class="sender-name">Sarah Johnson</span>
+                      <span class="sender-email">&lt;sarah.j@example.com&gt;</span>
+                    </div>
+                  </div>
+                  <div class="message-date">
+                    <span>Apr 16, 2023, 10:30 AM</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message-body">
+                <p>Hi Jane,</p>
+                <p>I was browsing your shop and I'm really interested in the Upcycled Denim Bag. It looks amazing!</p>
+                <p>I was wondering if the bag comes in different colors or if it's only available in the blue denim shown in the photos? Also, what are the dimensions of the bag?</p>
+                <p>Thanks in advance for your help!</p>
+                <p>Best regards,<br>Sarah</p>
+              </div>
+              <div class="reply-box">
+                <textarea placeholder="Type your reply here..."></textarea>
+                <div class="reply-actions">
+                  <button class="action-btn" id="send-reply"><i class="fas fa-paper-plane"></i> Send</button>
+                  <button class="action-btn secondary" id="discard-reply"><i class="fas fa-times"></i> Discard</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Community Section -->
+      <section id="community-section" class="dashboard-section">
+        <div class="section-header">
+          <h2>Community</h2>
+          <button class="action-btn" id="create-post"><i class="fas fa-plus"></i> Create Post</button>
+        </div>
+
+        <div class="community-tabs">
+          <button class="community-tab active" data-tab="feed">Feed</button>
+          <button class="community-tab" data-tab="groups">Groups</button>
+          <button class="community-tab" data-tab="events">Events</button>
+          <button class="community-tab" data-tab="challenges">Challenges</button>
+        </div>
+
+        <div class="community-content">
+          <div class="post-composer">
+            <div class="composer-header">
+              <img src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+              <input type="text" placeholder="Share something with the community..." id="post-input">
+            </div>
+            <div class="composer-actions">
+              <button class="composer-btn" id="add-photo"><i class="fas fa-image"></i> Photo</button>
+              <button class="composer-btn" id="add-video"><i class="fas fa-video"></i> Video</button>
+              <button class="composer-btn" id="add-poll"><i class="fas fa-poll"></i> Poll</button>
+              <button class="action-btn" id="publish-post">Publish</button>
+            </div>
+          </div>
+
+          <div class="feed-container">
+            <div class="feed-item">
+              <div class="feed-user">
+                <img src="/placeholder.svg?height=50&width=50" alt="EcoArtist">
+                <div class="feed-user-info">
+                  <h4>EcoArtist</h4>
+                  <span>2 hours ago</span>
+                </div>
+              </div>
+              <div class="feed-content">
+                <p>Just finished a new collection of recycled glass vases! Check them out in my store.</p>
+                <div class="feed-image">
+                  <img src="/placeholder.svg?height=400&width=600" alt="New Glass Vases">
+                </div>
+              </div>
+              <div class="feed-actions">
+                <button class="feed-action-btn like-btn" data-post="1"><i class="fas fa-heart"></i> <span>24</span></button>
+                <button class="feed-action-btn comment-btn" data-post="1"><i class="fas fa-comment"></i> <span>8</span></button>
+                <button class="feed-action-btn share-btn" data-post="1"><i class="fas fa-share"></i> Share</button>
+              </div>
+              <div class="feed-comments">
+                <div class="comment">
+                  <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <h5>GlassLover</h5>
+                      <span>1 hour ago</span>
+                    </div>
+                    <p>These look amazing! Love the colors.</p>
+                    <div class="comment-actions">
+                      <button class="comment-action-btn"><i class="fas fa-heart"></i> Like</button>
+                      <button class="comment-action-btn"><i class="fas fa-reply"></i> Reply</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="comment">
+                  <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <h5>EcoDesigner</h5>
+                      <span>30 minutes ago</span>
+                    </div>
+                    <p>What type of glass did you use for these? They're beautiful!</p>
+                    <div class="comment-actions">
+                      <button class="comment-action-btn"><i class="fas fa-heart"></i> Like</button>
+                      <button class="comment-action-btn"><i class="fas fa-reply"></i> Reply</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="add-comment">
+                  <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+                  <input type="text" placeholder="Write a comment...">
+                  <button class="send-comment-btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="feed-item">
+              <div class="feed-user">
+                <img src="/placeholder.svg?height=50&width=50" alt="WoodWorks">
+                <div class="feed-user-info">
+                  <h4>WoodWorks</h4>
+                  <span>5 hours ago</span>
+                </div>
+              </div>
+              <div class="feed-content">
+                <p>Looking for ideas on what to create with these reclaimed wooden pallets. Any suggestions?</p>
+                <div class="feed-image">
+                  <img src="/placeholder.svg?height=400&width=600" alt="Wooden Pallets">
+                </div>
+              </div>
+              <div class="feed-actions">
+                <button class="feed-action-btn like-btn" data-post="2"><i class="fas fa-heart"></i> <span>18</span></button>
+                <button class="feed-action-btn comment-btn" data-post="2"><i class="fas fa-comment"></i> <span>12</span></button>
+                <button class="feed-action-btn share-btn" data-post="2"><i class="fas fa-share"></i> Share</button>
+              </div>
+              <div class="feed-comments">
+                <div class="comment">
+                  <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <h5>PalletPro</h5>
+                      <span>4 hours ago</span>
+                    </div>
+                    <p>You could make a vertical garden wall! They're perfect for that.</p>
+                    <div class="comment-actions">
+                      <button class="comment-action-btn"><i class="fas fa-heart"></i> Like</button>
+                      <button class="comment-action-btn"><i class="fas fa-reply"></i> Reply</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="add-comment">
+                  <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+                  <input type="text" placeholder="Write a comment...">
+                  <button class="send-comment-btn"><i class="fas fa-paper-plane"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Settings Section -->
+      <section id="settings-section" class="dashboard-section">
+        <div class="section-header">
+          <h2>Settings</h2>
+        </div>
+
+        <div class="settings-tabs">
+          <button class="settings-tab active" data-tab="profile">Profile</button>
+          <button class="settings-tab" data-tab="account">Account</button>
+          <button class="settings-tab" data-tab="notifications">Notifications</button>
+          <button class="settings-tab" data-tab="payment">Payment Methods</button>
+          <button class="settings-tab" data-tab="shipping">Shipping</button>
+          <button class="settings-tab" data-tab="privacy">Privacy</button>
+        </div>
+
+        <div class="settings-content">
+          <div class="profile-settings">
+            <div class="profile-header">
+              <div class="profile-avatar">
+                <img src="/placeholder.svg?height=150&width=150" alt="User Avatar">
+                <button class="change-avatar-btn"><i class="fas fa-camera"></i></button>
+              </div>
+              <div class="profile-info">
+                <h3>Jane Smith</h3>
+                <p>Creator since 2022</p>
+                <div class="profile-stats">
+                  <div class="profile-stat">
+                    <span class="stat-value">12</span>
+                    <span class="stat-label">Products</span>
+                  </div>
+                  <div class="profile-stat">
+                    <span class="stat-value">28</span>
+                    <span class="stat-label">Sales</span>
+                  </div>
+                  <div class="profile-stat">
+                    <span class="stat-value">45kg</span>
+                    <span class="stat-label">Waste Saved</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form class="settings-form">
+              <div class="form-section">
+                <h4>Personal Information</h4>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" value="Jane">
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" value="Smith">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" value="jane.smith@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" value="(555) 123-4567">
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h4>Creator Profile</h4>
+                <div class="form-group">
+                  <label for="display-name">Display Name</label>
+                  <input type="text" id="display-name" value="EcoCreator">
+                </div>
+                <div class="form-group">
+                  <label for="bio">Bio</label>
+                  <textarea id="bio" rows="4">I'm passionate about transforming waste materials into beautiful, functional products. Specializing in glass and textile upcycling.</textarea>
+                </div>
+                <div class="form-group">
+                  <label for="specialties">Specialties</label>
+                  <input type="text" id="specialties" value="Glass Upcycling, Textile Reuse, Sustainable Design">
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="action-btn">Save Changes</button>
+                <button type="button" class="action-btn secondary">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <div class="footer-logo">
+            <span class="logo-text">Renewify</span>
+          </div>
+          <p class="footer-description">Transforming waste materials into beautiful, functional products through creativity and innovation.</p>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="browse.html">Browse Products</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Categories</h3>
+          <ul class="footer-links">
+            <li><a href="browse.html?category=home-decor">Home Decor</a></li>
+            <li><a href="browse.html?category=fashion">Fashion</a></li>
+            <li><a href="browse.html?category=furniture">Furniture</a></li>
+            <li><a href="browse.html?category=art">Art</a></li>
+            <li><a href="browse.html?category=jewelry">Jewelry</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Newsletter</h3>
+          <p>Subscribe to our newsletter for the latest updates and eco-friendly tips.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Renewify. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Dashboard functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Charts
+      initializeCharts();
+      
+      // Navigation functionality
+      setupNavigation();
+      
+      // User dropdown
+      setupUserDropdown();
+      
+      // Interactive buttons
+      setupButtonActions();
+    });
+
+    function initializeCharts() {
+      // Sales Chart
+      const salesCtx = document.getElementById('salesChart').getContext('2d');
+      const salesChart = new Chart(salesCtx, {
+        type: 'line',
+        data: {
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          datasets: [{
+            label: 'Sales',
+            data: [3, 5, 2, 8, 6, 7, 4],
+            backgroundColor: 'rgba(76, 175, 80, 0.2)',
+            borderColor: '#4caf50',
+            borderWidth: 2,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+      
+      // Product Chart
+      const productCtx = document.getElementById('productChart').getContext('2d');
+      const productChart = new Chart(productCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Glass Vase', 'Denim Bag', 'Tin Lanterns', 'Other'],
+          datasets: [{
+            data: [18, 10, 8, 5],
+            backgroundColor: [
+              '#4caf50',
+              '#ff9800',
+              '#2196f3',
+              '#9e9e9e'
+            ],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }
+      });
+
+      // Initialize analytics charts if they exist
+      if (document.getElementById('salesTrendChart')) {
+        const salesTrendCtx = document.getElementById('salesTrendChart').getContext('2d');
+        const salesTrendChart = new Chart(salesTrendCtx, {
+          type: 'line',
+          data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+              label: 'Sales 2023',
+              data: [65, 59, 80, 81, 56, 55, 40, 45, 60, 70, 85, 90],
+              backgroundColor: 'rgba(76, 175, 80, 0.2)',
+              borderColor: '#4caf50',
+              borderWidth: 2,
+              tension: 0.4
+            },
+            {
+              label: 'Sales 2022',
+              data: [45, 40, 60, 50, 45, 35, 30, 40, 50, 60, 70, 75],
+              backgroundColor: 'rgba(33, 150, 243, 0.2)',
+              borderColor: '#2196f3',
+              borderWidth: 2,
+              tension: 0.4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      }
+
+      if (document.getElementById('topProductsChart')) {
+        const topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
+        const topProductsChart = new Chart(topProductsCtx, {
+          type: 'bar',
+          data: {
+            labels: ['Glass Vase', 'Denim Bag', 'Tin Lanterns', 'Bottle Lamp', 'Pallet Table'],
+            datasets: [{
+              label: 'Sales',
+              data: [18, 10, 8, 6, 5],
+              backgroundColor: [
+                '#4caf50',
+                '#ff9800',
+                '#2196f3',
+                '#9c27b0',
+                '#f44336'
+              ],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      }
+
+      if (document.getElementById('demographicsChart')) {
+        const demographicsCtx = document.getElementById('demographicsChart').getContext('2d');
+        const demographicsChart = new Chart(demographicsCtx, {
+          type: 'pie',
+          data: {
+            labels: ['18-24', '25-34', '35-44', '45-54', '55+'],
+            datasets: [{
+              data: [15, 30, 25, 20, 10],
+              backgroundColor: [
+                '#4caf50',
+                '#ff9800',
+                '#2196f3',
+                '#9c27b0',
+                '#f44336'
+              ],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        });
+      }
+    }
+
+    function setupNavigation() {
+      // Sidebar navigation
+      const sidebarItems = document.querySelectorAll('.sidebar-nav li');
+      const dashboardSections = document.querySelectorAll('.dashboard-section');
+      
+      sidebarItems.forEach(item => {
+        item.addEventListener('click', function() {
+          // Remove active class from all items
+          sidebarItems.forEach(i => i.classList.remove('active'));
+          
+          // Add active class to clicked item
+          this.classList.add('active');
+          
+          // Show corresponding section
+          const sectionId = this.getAttribute('data-section');
+          dashboardSections.forEach(section => {
+            section.classList.remove('active');
+          });
+          document.getElementById(`${sectionId}-section`).classList.add('active');
+        });
+      });
+
+      // View all links
+      document.getElementById('view-all-orders').addEventListener('click', function(e) {
+        e.preventDefault();
+        showSection('orders');
+      });
+
+      document.getElementById('view-all-community').addEventListener('click', function(e) {
+        e.preventDefault();
+        showSection('community');
+      });
+      
+      // Sidebar collapse functionality
+      const sidebarCollapseBtn = document.getElementById('sidebar-collapse-btn');
+      const dashboardSidebar = document.querySelector('.dashboard-sidebar');
+      const dashboardContent = document.querySelector('.dashboard-content');
+      
+      sidebarCollapseBtn.addEventListener('click', function() {
+        dashboardSidebar.classList.toggle('collapsed');
+        dashboardContent.classList.toggle('expanded');
+        
+        // Change icon direction
+        const icon = this.querySelector('i');
+        if (dashboardSidebar.classList.contains('collapsed')) {
+          icon.classList.remove('fa-chevron-left');
+          icon.classList.add('fa-chevron-right');
+        } else {
+          icon.classList.remove('fa-chevron-right');
+          icon.classList.add('fa-chevron-left');
+        }
+      });
+    }
+
+    function showSection(sectionName) {
+      // Remove active class from all sidebar items
+      const sidebarItems = document.querySelectorAll('.sidebar-nav li');
+      sidebarItems.forEach(item => item.classList.remove('active'));
+      
+      // Add active class to corresponding sidebar item
+      document.querySelector(`.sidebar-nav li[data-section="${sectionName}"]`).classList.add('active');
+      
+      // Hide all sections
+      const dashboardSections = document.querySelectorAll('.dashboard-section');
+      dashboardSections.forEach(section => section.classList.remove('active'));
+      
+      // Show selected section
+      document.getElementById(`${sectionName}-section`).classList.add('active');
+    }
+
+    function setupUserDropdown() {
+      const userAvatar = document.querySelector('.user-menu .user-avatar');
+      const userDropdown = document.querySelector('.user-dropdown');
+      
+      userAvatar.addEventListener('click', function() {
+        userDropdown.classList.toggle('active');
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.user-menu') && userDropdown.classList.contains('active')) {
+          userDropdown.classList.remove('active');
+        }
+      });
+    }
+
+    function setupButtonActions() {
+      // Add Product button
+      document.getElementById('add-product-btn').addEventListener('click', function() {
+        showSection('products');
+        // Show add product modal or form
+        alert('Add Product functionality would open a form here');
+      });
+      
+      // Notifications button
+      document.getElementById('notifications-btn').addEventListener('click', function() {
+        alert('Notifications panel would open here');
+      });
+      
+      // View order buttons
+      const viewOrderBtns = document.querySelectorAll('.view-order-btn');
+      viewOrderBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const orderId = this.getAttribute('data-order');
+          alert(`View Order #${orderId} details would open here`);
+        });
+      });
+      
+      // Chart period buttons
+      const periodBtns = document.querySelectorAll('.chart-period .period-btn');
+      periodBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          periodBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const period = this.getAttribute('data-period');
+          alert(`Chart would update to show ${period} data`);
+        });
+      });
+      
+      // Product actions
+      const editProductBtns = document.querySelectorAll('.edit-product');
+      editProductBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const productId = this.getAttribute('data-product');
+          alert(`Edit Product #${productId} form would open here`);
+        });
+      });
+      
+      const deleteProductBtns = document.querySelectorAll('.delete-product');
+      deleteProductBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const productId = this.getAttribute('data-product');
+          if (confirm(`Are you sure you want to delete Product #${productId}?`)) {
+            alert(`Product #${productId} would be deleted`);
+          }
+        });
+      });
+      
+      // Message actions
+      const messageItems = document.querySelectorAll('.message-item');
+      messageItems.forEach(item => {
+        item.addEventListener('click', function() {
+          messageItems.forEach(i => i.classList.remove('active'));
+          this.classList.add('active');
+          const messageId = this.getAttribute('data-message');
+          // In a real app, this would load the message content
+          alert(`Message #${messageId} would be displayed`);
+        });
+      });
+      
+      // Social actions
+      const likeBtns = document.querySelectorAll('.like-btn');
+      likeBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const postId = this.getAttribute('data-post');
+          const likeCount = this.querySelector('span');
+          const currentLikes = parseInt(likeCount.textContent);
+          likeCount.textContent = currentLikes + 1;
+          this.classList.add('liked');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
+
